@@ -227,7 +227,6 @@ def main(args):
     dm.setup("fit")
 
     # initialize wandb experiment tracking and logger
-    wandb.login(key=args.wandb_api_key)
     wandb.init(
         project=args.wandb_project,
         config = {
@@ -282,5 +281,4 @@ if __name__ == '__main__':
     parser.add_argument('--eval_batch_size', type=int, default=32, help='Batch size in validation')
     parser.add_argument('--epochs', type=int, default=3, help='Max number of pochs')
     parser.add_argument('--wandb_project', default='cas-mlops', help='Weight & Biases project name')
-    parser.add_argument('--wandb_api_key', required=True, help='Weight & Biases API key')
     main(parser.parse_args())
